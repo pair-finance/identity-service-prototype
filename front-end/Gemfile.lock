@@ -1,0 +1,28 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    faraday (2.3.0)
+      faraday-net_http (~> 2.0)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (2.0.2)
+    puma (3.4.0)
+    rack (1.6.13)
+    rack-protection (1.5.5)
+      rack
+    ruby2_keywords (0.0.5)
+    sinatra (1.4.8)
+      rack (~> 1.5)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+    tilt (2.0.10)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  faraday
+  puma (~> 3.4.0)
+  sinatra (~> 1.4.7)
+
+BUNDLED WITH
+   2.1.2
