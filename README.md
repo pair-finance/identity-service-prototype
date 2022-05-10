@@ -32,14 +32,14 @@ otherwise it returns an error response.
 ## Key storage 
 It is a simple `key-storage` folder containing public and private keys.
 In production, services, except identity service,
-shouldn't have access to the private keys.
+shouldn't have an access to the private keys.
 
 ## How to run
 Navigate into each service folders and start applications by
 ```
 bundle exec puma -e production
 ```
-The loging service listens to the port 3000 and calc service listens to the port 3001.
+The login service listens to the port 3000 and calc service listens to the port 3001.
 
 ## Client (front end)
 The front end application imitates a client requests.
