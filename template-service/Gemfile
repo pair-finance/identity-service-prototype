@@ -8,3 +8,4 @@ gem 'sinatra', '~> 1.4.7'
 gem 'puma', '~> 3.4.0'
 gem 'jwt', '~> 2.3.0'
 gem "openssl"
+gem 'redis'

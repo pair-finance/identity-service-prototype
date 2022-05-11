@@ -2,7 +2,7 @@
 
 require 'openssl'
 require 'jwt'
-require_relative 'user'
+require_relative '../users-service/database'
 
 # Authenticates a user against a database
 # and signs a jwt using a private key
@@ -14,7 +14,7 @@ class Authentication
   end
 
   def login!(username, password)
-    user = User.find_by_username(username)
+    user = Database::User.find_by_username(username)
     raise 'User not found' if user.nil?
     
     raise 'Wrong user name and password' unless user.authenticate(password)

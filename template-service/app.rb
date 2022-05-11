@@ -38,7 +38,7 @@ end
 Thread.new do
   redis.subscribe(USERS_CHANNEL) do |on|
     on.subscribe do |channel, subscriptions|
-    logger.info "Calc Service Subscribed to ##{channel} (#{subscriptions} subscriptions)"
+    logger.info "Template Service Subscribed to ##{channel} (#{subscriptions} subscriptions)"
     end
     on.message do |channel, msg|
       logger.info "Got #{msg} on channel ##{channel}"
@@ -49,20 +49,10 @@ Thread.new do
   end
 end
 
-def write_to_redis(param_x, param_y, op, result)
-  redis.set('latest-calc', "#{param_x} #{op} #{param_x} = #{result}")
+get '/latest-calc' do
+  { result: redis.get('latest-calc') }.to_json
 end
 
-get '/calc/add' do
-  result = params[:x].to_f + params[:y].to_f
-  write_to_redis(params[:x], params[:y], '+', result)
-  { result: format('%0.2f', result) }.to_json
-end
 
-get '/calc/mul' do
-  result = params[:x].to_f * params[:y].to_f
-  write_to_redis(params[:x], params[:y], '*', result)
-  { result: format('%0.2f', result) }.to_json
-end
 
 

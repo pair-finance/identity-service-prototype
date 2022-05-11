@@ -2,7 +2,6 @@
 
 require 'openssl'
 require 'jwt'
-require_relative 'database'
 
 # Verifies jwt using a public key
 class Authentication

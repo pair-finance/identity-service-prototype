@@ -2,12 +2,21 @@
 
 require 'json'
 require_relative 'authentication'
+require_relative '../users-service/database'
 
 # Private key
 KEY_PATH = '../keys-storage/rsa/key1.pem'
 
 before do
   content_type :json
+end
+
+def redis 
+  @redis ||= Redis.new
+end
+
+def logger
+  @logger ||= Logger.new($stdout)
 end
 
 post '/login' do
